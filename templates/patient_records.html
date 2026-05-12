@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Medical Records</h3>
+<table class="table table-hover">
+  <thead class="table-primary">
+    <tr>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Doctor / Details</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for rec in records %}
+    <tr>
+      <td>{{ rec.date }}</td>
+      <td>{{ rec.type }}</td>
+      <td>{{ rec.content[:100] }}...</td>
+      <td><button class="btn btn-sm btn-primary">View</button></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

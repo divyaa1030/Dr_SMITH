@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="welcome-banner">
+  <h2>Welcome back, <span class="text-primary">{{ name }}</span>!</h2>
+  <p class="patient-id">Patient ID: <strong>{{ patient_id }}</strong></p>
+</div>
+
+<h4 class="mt-4"><i class="fas fa-bell"></i> Medicine Reminders</h4>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card border-info">
+      <div class="card-body text-center">
+        <h5>Paracetamol 500mg</h5>
+        <p class="text-success">Morning - 8:00 AM</p>
+        <button class="btn btn-sm btn-outline-success">Mark Taken</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="{{ url_for('ocr_scan') }}" class="btn btn-info mt-4">
+  <i class="fas fa-camera"></i> Scan New Prescription (OCR)
+</a>
+{% endblock %}

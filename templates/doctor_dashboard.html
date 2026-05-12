@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+  <!-- Doctor Header -->
+  <div class="col-12">
+    <div class="welcome-banner">
+      <h2>Welcome, Dr. {{ session.doctor_name|default('Rajesh Sharma') }} 👨‍⚕️</h2>
+      <p class="mb-0">Verified Medical Service Provider Portal</p>
+      <span class="badge bg-success fs-6">✅ Verified Access</span>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <!-- Patient Search -->
+    <div class="card mb-4">
+      <div class="card-header bg-primary text-white">
+        <h5><i class="fas fa-search"></i> Search Patient</h5>
+      </div>
+      <div class="card-body">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter Patient ID (e.g., SMT-7482)" id="patientSearch">
+          <button class="btn btn-primary" type="button" onclick="searchPatient()">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Patients -->
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h5>Recent Patients</h5>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Patient ID</th>
+              <th>Name</th>
+              <th>Last Visit</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SMT-7482</td>
+              <td>Jane Doe</td>
+              <td>12 May 2026</td>
+              <td><button class="btn btn-sm btn-outline-primary">View Records</button></td>
+            </tr>
+            <tr>
+              <td>SMT-3921</td>
+              <td>Amit Sharma</td>
+              <td>10 May 2026</td>
+              <td><button class="btn btn-sm btn-outline-primary">View Records</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column -->
+  <div class="col-md-4">
+    <div class="card border-success mb-4">
+      <div class="card-body text-center">
+        <h4 class="text-success">✅ Verified Doctor</h4>
+        <p class="mb-0">Registration No: MED-456789</p>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header bg-info text-white">
+        <h6>Quick Actions</h6>
+      </div>
+      <div class="card-body">
+        <button class="btn btn-outline-primary w-100 mb-2">
+          <i class="fas fa-plus"></i> New Clinical Entry
+        </button>
+        <button class="btn btn-outline-success w-100 mb-2">
+          <i class="fas fa-file-prescription"></i> Write Prescription
+        </button>
+        <a href="{{ url_for('analytics') }}" class="btn btn-outline-info w-100">
+          <i class="fas fa-chart-bar"></i> Adherence Analytics
+        </a>
+      </div>
+    </div>
+
+    <!-- Power BI Style -->
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h6>Medicine Adherence Overview</h6>
+      </div>
+      <div class="card-body text-center">
+        <h3 class="text-success">92%</h3>
+        <p class="text-muted">Average Adherence Rate</p>
+        <div class="progress" style="height: 25px;">
+          <div class="progress-bar bg-success" style="width: 92%;">92%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function searchPatient() {
+  const id = document.getElementById('patientSearch').value.trim();
+  if (id) {
+    alert(`🔍 Searching for Patient ID: ${id}\n\n(Full patient record view coming soon...)`);
+  } else {
+    alert("Please enter a Patient ID");
+  }
+}
+</script>
+
+{% endblock %}

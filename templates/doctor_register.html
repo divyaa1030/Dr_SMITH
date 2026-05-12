@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+  <div class="col-md-6">
+    <div class="card shadow">
+      <div class="card-header bg-success text-white text-center">
+        <h4><i class="fas fa-user-md"></i> Medical Service Provider Registration</h4>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="{{ url_for('doctor_register') }}">
+          
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Full Name</label>
+              <input type="text" name="full_name" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Email</label>
+              <input type="email" name="email" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Password</label>
+              <input type="password" name="password" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Contact Number</label>
+              <input type="tel" name="contact" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label>Hospital / Clinic Name</label>
+            <input type="text" name="hospital" class="form-control" required>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Speciality</label>
+              <input type="text" name="speciality" class="form-control" placeholder="e.g., General Physician, Cardiologist" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Doctor Registration No.</label>
+              <input type="text" name="reg_no" class="form-control" placeholder="MED-XXXXXX" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label>Aadhar Card No</label>
+            <input type="text" name="aadhar" class="form-control" maxlength="12" required>
+          </div>
+
+          <button type="submit" class="btn btn-success w-100">
+            <i class="fas fa-user-plus"></i> Register as Doctor
+          </button>
+        </form>
+      </div>
+      <div class="card-footer text-center">
+        <a href="{{ url_for('doctor_login') }}">Already registered? Login here</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

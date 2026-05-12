@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center mt-4">
+  <div class="col-md-6">
+    <div class="card shadow">
+      <div class="card-header bg-primary text-white text-center">
+        <h4>Patient Registration</h4>
+      </div>
+      <div class="card-body">
+        <form method="POST">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Full Name</label>
+              <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Email</label>
+              <input type="email" name="email" class="form-control" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Password</label>
+              <input type="password" name="password" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Age</label>
+              <input type="number" name="age" class="form-control" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Gender</label>
+              <select name="gender" class="form-select" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Contact No</label>
+              <input type="tel" name="contact" class="form-control" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label>Aadhar Card No</label>
+            <input type="text" name="aadhar" class="form-control" maxlength="12" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Register & Generate Patient ID</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

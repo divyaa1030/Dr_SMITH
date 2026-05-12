@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>OCR Prescription Scanner</h3>
+<form method="POST" enctype="multipart/form-data">
+  <input type="file" name="file" accept="image/*" class="form-control mb-3" required>
+  <button type="submit" class="btn btn-primary">Scan Prescription</button>
+</form>
+
+{% if extracted_text %}
+<div class="alert alert-info mt-4">
+  <h5>Extracted Text:</h5>
+  <pre>{{ extracted_text }}</pre>
+</div>
+{% endif %}
+{% endblock %}

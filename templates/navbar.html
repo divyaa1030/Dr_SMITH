@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="{{ url_for('patient_home') }}">
+      <i class="fas fa-heartbeat"></i> Dr. SMITH
+    </a>
+    
+    <div class="d-flex align-items-center">
+      <div class="me-4 text-light">
+        <strong>{{ name|default('Patient') }}</strong><br>
+        <small class="text-light-50">{{ patient_id }}</small>
+      </div>
+      
+      <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <a href="{{ url_for('patient_home') }}" class="sidebar-link {{ 'active' if request.endpoint == 'patient_home' }}">
+    <i class="fas fa-home"></i> Home
+  </a>
+  <a href="{{ url_for('patient_records') }}" class="sidebar-link {{ 'active' if request.endpoint == 'patient_records' }}">
+    <i class="fas fa-file-medical"></i> Records
+  </a>
+  <a href="{{ url_for('patient_profile') }}" class="sidebar-link {{ 'active' if request.endpoint == 'patient_profile' }}">
+    <i class="fas fa-user"></i> Profile
+  </a>
+  <a href="{{ url_for('ocr_scan') }}" class="sidebar-link {{ 'active' if request.endpoint == 'ocr_scan' }}">
+    <i class="fas fa-scan"></i> OCR Scan
+  </a>
+  <a href="{{ url_for('drug_checker') }}" class="sidebar-link {{ 'active' if request.endpoint == 'drug_checker' }}">
+    <i class="fas fa-pills"></i> Drug Checker
+  </a>
+  <a href="{{ url_for('analytics') }}" class="sidebar-link {{ 'active' if request.endpoint == 'analytics' }}">
+    <i class="fas fa-chart-bar"></i> Adherence Analytics
+  </a>
+</div>
